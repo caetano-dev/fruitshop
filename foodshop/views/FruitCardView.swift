@@ -29,15 +29,22 @@ struct FruitCardView: View {
                 Image(fruit.image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 150, maxHeight: 150)
+                    .frame(maxWidth: 120)
             }
-            
-            
+            .padding(.top, 20)
+            HStack{
+                Spacer()
+                Image(systemName: "checkmark")
+                    .foregroundStyle(Color.white)
+                    .fontWeight(.bold)
+                    .padding(15)
+                    .background(Color(fruit.backgroundColor).opacity(0.3))
+                    .clipShape(Rectangle())
+            }
         }
-        .padding(25)
+        .frame(width: 160)
         .background(Color(fruit.backgroundColor).opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 30))
-        .cornerRadius(12)
     }
 }
 

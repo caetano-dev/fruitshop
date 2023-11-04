@@ -22,7 +22,7 @@ struct ContentView: View {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
                     ForEach(mockFruitData, id: \.name) { fruit in
                         FruitCardView(fruit: fruit)
-                            .aspectRatio(contentMode: .fit)
+                            .padding()
                         
                     }
                 }
