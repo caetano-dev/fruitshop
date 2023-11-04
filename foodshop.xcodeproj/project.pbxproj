@@ -13,6 +13,7 @@
 		EF3F323E2AF57BF3002130EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF3F323D2AF57BF3002130EA /* Preview Assets.xcassets */; };
 		EF3F32452AF57D94002130EA /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3F32442AF57D94002130EA /* FruitModel.swift */; };
 		EF7ED57A2AF68E670038871F /* ColumnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7ED5792AF68E670038871F /* ColumnModel.swift */; };
+		EF7ED57D2AF69A6F0038871F /* WaterfallGrid in Frameworks */ = {isa = PBXBuildFile; productRef = EF7ED57C2AF69A6F0038871F /* WaterfallGrid */; };
 		EFC7ABCB2AF5B552004884CF /* FruitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC7ABCA2AF5B552004884CF /* FruitCardView.swift */; };
 		EFC7ABCF2AF5B6A0004884CF /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC7ABCE2AF5B6A0004884CF /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7ED57D2AF69A6F0038871F /* WaterfallGrid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +113,9 @@
 			dependencies = (
 			);
 			name = foodshop;
+			packageProductDependencies = (
+				EF7ED57C2AF69A6F0038871F /* WaterfallGrid */,
+			);
 			productName = foodshop;
 			productReference = EF3F32332AF57BF1002130EA /* foodshop.app */;
 			productType = "com.apple.product-type.application";
@@ -139,6 +144,9 @@
 				Base,
 			);
 			mainGroup = EF3F322A2AF57BF1002130EA;
+			packageReferences = (
+				EF7ED57B2AF69A6F0038871F /* XCRemoteSwiftPackageReference "WaterfallGrid" */,
+			);
 			productRefGroup = EF3F32342AF57BF1002130EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -374,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF7ED57B2AF69A6F0038871F /* XCRemoteSwiftPackageReference "WaterfallGrid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paololeonardi/WaterfallGrid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF7ED57C2AF69A6F0038871F /* WaterfallGrid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF7ED57B2AF69A6F0038871F /* XCRemoteSwiftPackageReference "WaterfallGrid" */;
+			productName = WaterfallGrid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF3F322B2AF57BF1002130EA /* Project object */;
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WaterfallGrid
 
 struct ContentView: View {
     var body: some View {
@@ -20,11 +21,14 @@ struct ContentView: View {
             
             //
             ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
-                    ForEach(mockFruitData, id: \.name) { fruit in
-                        FruitCardView(fruit: fruit)
-                    }
+                WaterfallGrid(mockFruitData, id: \.self) { fruit in
+                    FruitCardView(fruit: fruit)
                 }
+                .gridStyle(
+                    columnsInPortrait: 2,
+                    columnsInLandscape: 3,
+                    spacing: 8
+                )
             }
         }
         .padding()
