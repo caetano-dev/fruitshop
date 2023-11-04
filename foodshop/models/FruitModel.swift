@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Fruit {
+struct Fruit: Hashable {
     let name: String
     let image: String
     let pricePerEach: Double

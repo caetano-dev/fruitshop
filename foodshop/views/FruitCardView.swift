@@ -21,15 +21,15 @@ struct FruitCardView: View {
                     .font(.subheadline)
                     .opacity(0.8)
                 
-                
                 Text(String(format: "$%.2f", fruit.pricePerEach))
                     .font(.headline)
                     .fontWeight(.bold)
                 
                 Image(fruit.image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 120)
+                    .scaledToFit()
+                    .frame(minWidth: 120, maxWidth: 140)
+                
             }
             .padding(.top, 20)
             HStack{
@@ -42,7 +42,6 @@ struct FruitCardView: View {
                     .clipShape(Rectangle())
             }
         }
-        .frame(width: 160)
         .background(Color(fruit.backgroundColor).opacity(0.2))
         .clipShape(RoundedRectangle(cornerRadius: 30))
     }

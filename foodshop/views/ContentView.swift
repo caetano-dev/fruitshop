@@ -16,17 +16,15 @@ struct ContentView: View {
                     .fontWeight(.bold)
                 SearchBarView()
             }
+            .padding(.bottom)
             
             //
             ScrollView {
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
                     ForEach(mockFruitData, id: \.name) { fruit in
                         FruitCardView(fruit: fruit)
-                            .padding()
-                        
                     }
                 }
-                .padding()
             }
         }
         .padding()
