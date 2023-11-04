@@ -19,7 +19,6 @@ struct ContentView: View {
             }
             .padding(.bottom)
             
-            //
             ScrollView {
                 WaterfallGrid(mockFruitData, id: \.self) { fruit in
                     FruitCardView(fruit: fruit)

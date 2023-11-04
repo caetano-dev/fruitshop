@@ -17,7 +17,7 @@ struct SearchBarView: View {
                 text: $searchContent
             )
         }.padding()
-            .background(Color.gray)
+            .background(Color.inputGray)
             .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }

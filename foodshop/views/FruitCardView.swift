@@ -28,7 +28,7 @@ struct FruitCardView: View {
                 Image(fruit.image)
                     .resizable()
                     .scaledToFit()
-                    .frame(minWidth: 120, maxWidth: 140)
+                    .frame(width: 120)
                 
             }
             .padding(.top, 20)
