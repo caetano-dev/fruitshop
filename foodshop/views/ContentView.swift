@@ -9,18 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            VStack(alignment: .leading) {
-                Text("Fruits and berries")
-                    .font(.title)
-                    .fontWeight(.bold)
-                SearchBarView()
+        NavigationStack{
+            VStack{
+                VStack(alignment: .leading) {
+                    Text("Fruits and berries")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    SearchBarView()
+                }
+                .padding(.bottom)
+                
+                FruitGrid()
             }
-            .padding(.bottom)
-            
-            FruitGrid()
+            .padding()
         }
-        .padding()
     }
 }
 
