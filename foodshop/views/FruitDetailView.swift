@@ -30,10 +30,11 @@ struct FruitDetailView: View {
                     
                     Spacer()
                 }
+                .padding(.top,30)
                 HStack{
                     //ammount selector
                     HStack{
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {}, label: {
                             Text("-")
                                 .font(.title2)
                                 .foregroundStyle(Color.black)
@@ -61,21 +62,46 @@ struct FruitDetailView: View {
                         .font(.title)
                         .fontWeight(.bold)
                 }
-                Spacer()
                 VStack(alignment: .leading){
                     Text("Product Description")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .padding(.bottom)
                     Text(fruit.description)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                HStack{
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Image(systemName: "heart.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(Color(fruit.backgroundColor))
+                    })
+                    .frame(width: 70, height: 70)
+                    .background(Color.clear)
+                    .clipShape(Circle())
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15.0)
+                            .stroke(Color(fruit.backgroundColor), lineWidth: 1)
+                    )
+                    .padding(.trailing, 5)
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Text("Add to cart")
+                            .foregroundStyle(Color.black)
+                            .font(.headline)
+                            .fontWeight(.bold)
+                    })
+                    .frame(width: 250, height: 70)
+                    .background(Color(fruit.backgroundColor))
+                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                    
                 }
             }
             .frame(maxHeight: .infinity)
-            .padding(40)
+            .padding(.horizontal, 40)
+            .padding(.bottom, 50)
             .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 55))
-            .offset(CGSize(width: 0, height: 50.0))
-            Spacer()
+            .clipShape(RoundedRectangle(cornerRadius: 65))
         }.background(Color(fruit.backgroundColor))
     }
 }
