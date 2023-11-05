@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct FruitDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+    @State var fruitCount: Int = 1
     let fruit: Fruit
     var body: some View {
         VStack{
-            HStack{
-                Image(fruit.image)
-                    .resizable()
-                    .scaledToFit()
+//            HeaderView()
+            GeometryReader{ geometry in
+                HStack{
+                    Image(fruit.image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                }
             }
-            
+            Spacer()
             VStack{
                 HStack{
                     VStack(alignment: .leading){
@@ -32,21 +39,20 @@ struct FruitDetailView: View {
                 }
                 .padding(.top,30)
                 HStack{
-                    //ammount selector
                     HStack{
-                        Button(action: {}, label: {
+                        Button(action: {(fruitCount>1) ? (fruitCount-=1) : (fruitCount=1)}, label: {
                             Text("-")
                                 .font(.title2)
                                 .foregroundStyle(Color.black)
                         })
                         .padding()
                         
-                        Text("1")
+                        Text("\(fruitCount)")
                             .padding()
                             .font(.title2)
                             .foregroundStyle(Color.black)
                         
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Button(action: {fruitCount+=1}, label: {
                             Text("+")
                                 .font(.title2)
                                 .foregroundStyle(Color.black)
@@ -56,7 +62,6 @@ struct FruitDetailView: View {
                     }
                     .background(Color.inputGray)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                    //ammount selector
                     Spacer()
                     Text(String(format: "$%.2f", fruit.pricePerEach))
                         .font(.title)
@@ -70,42 +75,31 @@ struct FruitDetailView: View {
                     Text(fruit.description)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                HStack{
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Image(systemName: "heart.fill")
-                            .font(.largeTitle)
-                            .foregroundStyle(Color(fruit.backgroundColor))
-                    })
-                    .frame(width: 70, height: 70)
-                    .background(Color.clear)
-                    .clipShape(Circle())
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15.0)
-                            .stroke(Color(fruit.backgroundColor), lineWidth: 1)
-                    )
-                    .padding(.trailing, 5)
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        Text("Add to cart")
-                            .foregroundStyle(Color.black)
-                            .font(.headline)
-                            .fontWeight(.bold)
-                    })
-                    .frame(width: 250, height: 70)
-                    .background(Color(fruit.backgroundColor))
-                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                    
-                }
+                ButtonsView(fruit: fruit)
             }
             .frame(maxHeight: .infinity)
             .padding(.horizontal, 40)
             .padding(.bottom, 50)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 65))
-        }.background(Color(fruit.backgroundColor))
+            .offset(CGSize(width: 0, height: 40.0))
+        }
+        .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.backward.square.fill")
+                            .font(.title)
+                            .foregroundStyle(Color.black)
+                    }
+                }
+            }
+        .background(Color(fruit.backgroundColor))
     }
 }
 
 #Preview {
-    FruitDetailView(fruit: mango)
+    FruitDetailView(fruit: banana)
 }

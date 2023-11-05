@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack{
                 VStack(alignment: .leading) {
                     Text("Fruits and berries")
@@ -18,10 +20,11 @@ struct ContentView: View {
                     SearchBarView()
                 }
                 .padding(.bottom)
-                
+
                 FruitGrid()
             }
             .padding()
+            
         }
     }
 }
