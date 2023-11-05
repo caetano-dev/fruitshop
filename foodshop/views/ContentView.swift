@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    @State var searchText: String = ""
+    
     var body: some View {
         NavigationStack {
             VStack{
@@ -17,18 +18,20 @@ struct ContentView: View {
                     Text("Fruits and berries")
                         .font(.title)
                         .fontWeight(.bold)
-                    SearchBarView()
+                    SearchBarView(searchText: $searchText)
                 }
                 .padding(.bottom)
-
-                FruitGrid()
+                
+                FruitGrid(searchText: $searchText)
             }
-            .padding()
-            
+            .padding(.horizontal)
         }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    @State static var search: String = ""
+    static var previews: some View {
+        ContentView(searchText: search)
+    }
 }

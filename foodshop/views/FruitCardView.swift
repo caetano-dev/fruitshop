@@ -39,7 +39,13 @@ struct FruitCardView: View {
                     .fontWeight(.bold)
                     .padding(15)
                     .background(Color(fruit.backgroundColor).opacity(0.3))
-                    .clipShape(Rectangle())
+                    .clipShape(.rect(
+                        topLeadingRadius: 20,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 20,
+                        topTrailingRadius: 0
+                    ))
+                
             }
         }
         .background(Color(fruit.backgroundColor).opacity(0.2))

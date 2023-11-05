@@ -14,7 +14,6 @@ struct FruitDetailView: View {
     let fruit: Fruit
     var body: some View {
         VStack{
-//            HeaderView()
             GeometryReader{ geometry in
                 HStack{
                     Image(fruit.image)
