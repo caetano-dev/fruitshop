@@ -20,7 +20,7 @@ struct FruitGrid: View {
                 .gridStyle(
                     columnsInPortrait: 2,
                     columnsInLandscape: 3,
-                    spacing: 8
+                    spacing: 15
                 )
         }
     }

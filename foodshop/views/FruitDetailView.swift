@@ -86,11 +86,20 @@ struct FruitDetailView: View {
         }
         .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "chevron.backward.square.fill")
+                            .font(.title)
+                            .foregroundStyle(Color.black)
+                    }
+                } 
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "line.horizontal.3.decrease.circle")
                             .font(.title)
                             .foregroundStyle(Color.black)
                     }
