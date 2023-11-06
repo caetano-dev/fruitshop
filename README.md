@@ -8,7 +8,7 @@ This is a design concept created by [Anastasia Golovko](https://dribbble.com/ana
 
 ## My implementation
 
-![screenshot](./.github/sc1.png)
-![screenshot](./.github/sc2.png)
-![screenshot](./.github/sc3.png)
+<img src="./.github/sc1.png" alt="app screenshot" width="300"/>
+<img src="./.github/sc2.png" alt="app screenshot" width="300"/>
+<img src="./.github/sc3.png" alt="app screenshot" width="300"/>
 
